@@ -325,10 +325,10 @@ label.innerText = "heading : " + heading.toFixed(0) + "&deg;";
 |                | Google Maps JavaScript API v3     | Cordova-Plugin-GoogleMaps             |
 |----------------|-----------------------------------|---------------------------------------|
 |Rendering system| JavaScript + HTML                 | JavaScript + Native APIs              |
-|Offline map     | 불가                              | 보기 가능                              |
-|3D View         | 불가                              | 가능                                   |
-|Platform        | 모든 웹 브라우저                   | 안드로이드, IOS                        |
-|Tile image      | 비트맵                            | 벡터                                   |
+|Offline map     | 불가                      | 보기 가능    |
+|3D View         | 불가                      | 가능                              |
+|Platform        | 모든 웹 브라우저                      | 안드로이드, IOS              |
+|Tile image      | 비트맵                            | 벡터                                |
 
 **Class 비교표**
 
@@ -362,28 +362,29 @@ label.innerText = "heading : " + heading.toFixed(0) + "&deg;";
 
 ### 플러그인이 어떻게 동작하나요?
 
-This plugin generates native map views, and put them **under the browser**.
+우선 네이티브 맵 뷰를 생성하고, **웹 뷰**의 밑(下)에 위치합니다.
 
-The map views are not an HTML element. It means they are not kind of `<div>` or something.
-But you can specify the size, position of the map view using `<div>`.
+맵뷰는 HTML 객체가 아닙니다.
+따라서 `<div>` 혹은 예하 태그 요소를 접근 할 수는 없습니다.
+하지만 `<div>` 태그를 이용해 뷰의 크기나 위치를 조정할 수 있습니다.
 
-This plugin changes the background as `transparent` of your app.
-Then the plugin detects your finger tap position which is for: `native map` or `html element`.
+위에서 설명한대로 하기위해서 앱의 메인 뷰를 `투명하게(transparent)` 해야 합니다.
+그래야만 플러그인이 사용자가 맵을 손가락으로 핸들링 할때 `네이티브 맵`을 손대는지, 아니면 `HTML 객체`를 건드리는지 알 수 있습니다.
+** (역주:  뷰가 투명하지 않으면 당연히 네이티브 앱이 안보입니다. 밑에 있기 때문에요.)**
 
 ![](https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/raw/master/v1.4.0/class/Map/mechanism.png)
 
-The benefit of this plugin is able to detect which HTML elements are over the map or not automatically.
+이 플러그인의 장점은 만약 지도가 밑에 깔려있고, HTML 객체가 위에 올라와 있을때 사용자가 이 HTML 객체를 터치하여 이벤트를 발생시켜도 지도가 눌리지 않고 정상적으로 HTML 객체 이벤트를 따른다는 점인데, 이는 플러그인이 HTML 객체를 감지하기 때문입니다.
 
-In the below image, you tap on the header div, which is over the map view.
-This plugin detects your tap is for the header div or the map view, then pass the mouse event.
+아래의 이미지를 보시면 맵뷰가 밑에 깔려있고 그 위에 헤더 바가 있습니다.
 
-It means **you can use the native Google Maps views similar like HTML element**.
+따라서 **우리의 플러그인은 네이티브지만 HTML 객체처럼 사용할 수 있습니다**.
 
 ![](https://raw.githubusercontent.com/mapsplugin/cordova-plugin-googlemaps/master/images/touch.png)
 
 ---
 
-## Official Communities
+## 공식 커뮤니티
 
 - Google+ : @wf9a5m75
   https://plus.google.com/communities/117427728522929652853
@@ -393,17 +394,17 @@ It means **you can use the native Google Maps views similar like HTML element**.
 
 ---
 
-## Buy me a beer
+## 후원
 
-We appreciate if you donate some amount to help this project from this button.
+아래 버튼을 눌러 프로젝트 개발에 도움을 주시면 감사드리겠습니다.
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SQPLZJ672HJ9N&lc=US&item_name=cordova%2dgooglemaps%2dplugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
 
-The donated amount is used for buying testing machine (such as iPhone, Android) or new software.
+기부해주신 돈은 테스트용 기기(Android or iPhone, etc)나 새로운 소프트웨어를 구매하는데 사용합니다.
 
 
-## Buy me a beer (by bitcoin)
+## 후원 (비트코인)
 
-Thank you for supporting us by bitcoin.
+비트코인으로도 후원이 가능합니다.
 
 3LyVAfANZwcitEEnFbsHup3mDJfuqp8QFb
