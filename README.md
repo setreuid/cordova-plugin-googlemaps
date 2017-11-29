@@ -1,28 +1,29 @@
 # Cordova GoogleMaps plugin for iOS and Android (version 2.1.1)
 
-This plugin is a thin wrapper for [Google Maps Android API](https://developers.google.com/maps/documentation/android/) and [Google Maps SDK for iOS](https://developers.google.com/maps/documentation/ios/).
+이 플러그인은 네이티브 [Google Maps Android API](https://developers.google.com/maps/documentation/android/) 와 [Google Maps SDK for iOS](https://developers.google.com/maps/documentation/ios/)을 하이브리드 앱에서 사용할 수 있도록 합니다.
 
-Both [PhoneGap](http://phonegap.com/) and [Apache Cordova](http://cordova.apache.org/) are supported.
+하이브리드 프레임워크 [PhoneGap](http://phonegap.com/)과 [Apache Cordova](http://cordova.apache.org/)를 지원합니다.
 
 -----
 
-## Quick install
+## 설치
 
-*Stable version(npm)*
+*안정 버전(npm)*
 ```
 $> cordova plugin add cordova-plugin-googlemaps \
     --variable API_KEY_FOR_ANDROID="..." \
     --variable API_KEY_FOR_IOS="..."
 ```
 
-*Develop version (current multiple_maps branch)*
+*개발 버전 (current multiple_maps branch)*
 ```bash
 $> cordova plugin add https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps \
     --variable API_KEY_FOR_ANDROID="..." \
     --variable API_KEY_FOR_IOS="..."
 ```
 
-If you re-install the plugin, please always remove the plugin first, then remove the SDK
+재설치시에는 반드시 플러그인을 먼저 삭제해야 합니다.
+삭제될때 네이티브 구글 맵 SDK도 함께 삭제됩니다.
 
 ```bash
 $> cordova plugin rm cordova-plugin-googlemaps
@@ -35,7 +36,7 @@ $> cordova plugin add cordova-plugin-googlemaps \
     --no-fetch
 ```
 
-#### If you can't reinstall the plugin, try like this:
+#### 재설치시 오류 혹은 실패할 경우
 
 ```
 $> npm cache clean
@@ -50,14 +51,14 @@ $> cordova plugin add cordova-plugin-googlemaps --nofetch
 $> cordova platform add android ios
 ```
 
-### Configuration
+### 설정
 
-You can also configure the following variables to customize the iOS location plist entries
+IOS 빌드시 plist에 위치 관련 Description이 자동으로 추가되게 할 수 있습니다.
 
-- `LOCATION_WHEN_IN_USE_DESCRIPTION` for `NSLocationWhenInUseUsageDescription` (defaults to "Show your location on the map")
-- `LOCATION_ALWAYS_USAGE_DESCRIPTION` for `NSLocationAlwaysUsageDescription` (defaults t "Trace your location on the map")
+- `LOCATION_WHEN_IN_USE_DESCRIPTION` > `NSLocationWhenInUseUsageDescription` (기본값: "Show your location on the map")
+- `LOCATION_ALWAYS_USAGE_DESCRIPTION` > `NSLocationAlwaysUsageDescription` (기본값: "Trace your location on the map")
 
-Example using the Cordova CLI
+Cordova CLI를 사용하여 설치시 셋팅하는 방법
 
 ```bash
 $> cordova plugin rm cordova-plugin-googlemaps
@@ -71,7 +72,7 @@ $> cordova plugin add cordova-plugin-googlemaps \
     --variable LOCATION_ALWAYS_USAGE_DESCRIPTION="My custom always usage message"
 ```
 
-Example using config.xml
+config.xml 파일을 수정하여 직접 설정하는 방법
 ```xml
 <plugin name="cordova-plugin-googlemaps" spec="2.0.0">
     <variable name="API_KEY_FOR_ANDROID" value="YOUR_ANDROID_API_KEY_IS_HERE" />
@@ -81,23 +82,23 @@ Example using config.xml
 </plugin>
 ```
 
-## Release Notes
+## 업데이트 로그
 
-- [v2.1.0 Release notes](https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/ReleaseNotes/v2.1.0/README.md)
+- [v2.1.0 업데이트](https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/ReleaseNotes/v2.1.0/README.md)
 
-- `plugin.google.maps.geometry.poly` namespace is added.
+- `plugin.google.maps.geometry.poly` 네임 스페이스 추가.
 
-- `HtmlInfoWindow` follows the marker smoothly.
+- `HtmlInfoWindow`를 마커에 띄울때에 대한 개선.
 
-- The code of `external service` removed. Please use the [Launch Navigator Cordova/Phonegap Plugin](https://github.com/dpa99c/phonegap-launch-navigator) instead.
+- `external service`는 삭제되었습니다. [Launch Navigator Cordova/Phonegap Plugin](https://github.com/dpa99c/phonegap-launch-navigator)을 사용해 주십시오.
 
-- The calculation of DOM element hierarchy was fixed.
+- DOM 객체의 계층 구조에 문제가 있었던 점을 수정하였습니다.
 
-- [@ionic-native/google-maps@4.3.3](https://www.npmjs.com/package/@ionic-native/google-maps) was released.
+- [@ionic-native/google-maps@4.3.3](https://www.npmjs.com/package/@ionic-native/google-maps) 배포.
 
-- v2.1.1 has small bug fixes.
+- 버전 2.1.1에서 사소한 버그들을 수정하였습니다.
 
-## Quick demo
+## 샘플
 
 ![](https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/raw/master/v1.4.0/top/demo.gif)
 
@@ -157,11 +158,11 @@ function onButtonClick() {
 
 -----
 
-## Documentation
+## 세부 문서
 
-[All documentations are here!!](https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md)
+[더 자세한 내용은 여기를 확인하세요!!](https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/README.md)
 
-**Quick examples**
+**예제**
 <table>
 <tr>
   <td><a href="https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.0.0/class/Map/README.md"><img src="https://github.com/mapsplugin/cordova-plugin-googlemaps/raw/master/images/map.png?raw=true"><br>Map</a></td>
@@ -308,27 +309,28 @@ label.innerText = "heading : " + heading.toFixed(0) + "&deg;";
 
 -----
 
-### How different between Google Maps JavaScript API v3?
+### Google Maps JavaScript API v3와 비교해서 다른점이 있나요?
 
-This plugin displays the map view of native(Java and Objective-C) features, which is **faster** than Google Maps JavaScript API v3.
+이 플러그인을 사용하면 구현되어있는 네이티브(Java, Objective-C) 구글맵을 사용할 수 있습니다.
+물론 훨씬 빠르고 안정적입니다.
 
-And the native map view works even if the device is **offline**.
+스마트폰이 **네트워크에 연결되어 있지 않더라도** 네이티브 구글 맵을 이용해 동작이 가능합니다.
 
-This plugin provides the features of the native map view to JS developers.
+또, Google Maps JavaScript API v3에서 제공하는 Class를 그대로 사용할 수 있습니다.
 
-You can write your code `similar like` the Google Maps JavaScript API v3.
+아래 표를 참고하여서 얼마나 `비슷한지` 우리의 플러그인과 Google Maps JavaScript API v3를 확인하십시오.
 
-**Features compare table**
+**특징 비교표**
 
 |                | Google Maps JavaScript API v3     | Cordova-Plugin-GoogleMaps             |
 |----------------|-----------------------------------|---------------------------------------|
 |Rendering system| JavaScript + HTML                 | JavaScript + Native APIs              |
-|Offline map     | Not possible                      | Possible (only you displayed area)    |
-|3D View         | Not possible                      | Possible                              |
-|Platform        | All browsers                      | Android and iOS app only              |
-|Tile image      | Bitmap                            | Vector                                |
+|Offline map     | 불가                              | 보기 가능                              |
+|3D View         | 불가                              | 가능                                   |
+|Platform        | 모든 웹 브라우저                   | 안드로이드, IOS                        |
+|Tile image      | 비트맵                            | 벡터                                   |
 
-**Class compare table**
+**Class 비교표**
 
 | Google Maps JavaScript API v3     | Cordova-Plugin-GoogleMaps             |
 |-----------------------------------|---------------------------------------|
@@ -358,7 +360,7 @@ You can write your code `similar like` the Google Maps JavaScript API v3.
 | google.maps.places.*              | (not available)                       |
 | google.maps.visualization.*       | (not available)                       |
 
-### How does this plugin work?
+### 플러그인이 어떻게 동작하나요?
 
 This plugin generates native map views, and put them **under the browser**.
 
